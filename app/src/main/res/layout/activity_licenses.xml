@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".LicensesActivity">
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:src="@drawable/icon_kbu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/strTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Shuttle Gate Scanner"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/strSubTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
+
+    <TextView
+        android:id="@+id/strSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="셔틀 게이트 탑승 스케너"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/strTitle" />
+
+    <com.alimuzaffar.lib.pin.PinEntryEditText
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="50dp"
+        android:id="@+id/licensesPinEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="false"
+        android:inputType="text"
+        android:maxLength="5"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/strSubTitle" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="50dp"
+        android:id="@+id/btn_licenses"
+        app:layout_constraintTop_toBottomOf="@id/licensesPinEntry"
+        android:text="운행 시작"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

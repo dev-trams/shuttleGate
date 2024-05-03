@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="92dp"
+        android:rotationX="0"
         android:src="@drawable/icon_kbu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,24 +41,24 @@
         app:layout_constraintTop_toBottomOf="@id/strTitle" />
 
     <com.alimuzaffar.lib.pin.PinEntryEditText
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="50dp"
         android:id="@+id/licensesPinEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:cursorVisible="false"
         android:inputType="text"
         android:maxLength="5"
         android:textIsSelectable="false"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/strSubTitle" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="50dp"
         android:id="@+id/btn_licenses"
-        app:layout_constraintTop_toBottomOf="@id/licensesPinEntry"
-        android:text="운행 시작"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="운행 시작"
+        app:layout_constraintTop_toBottomOf="@id/licensesPinEntry" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,11 +15,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.shuttle.gate.Utils.Util;
 import com.shuttle.gate.databinding.ActivityGpsMonitorBinding;
+
+import net.daum.mf.map.api.MapPoint;
+import net.daum.mf.map.api.MapView;
+
+import java.util.Map;
 
 public class GpsMonitor extends AppCompatActivity {
     private GpsTracker gpsTracker;
-
+    Util util = new Util();
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS = {android.Manifest.permission.ACCESS_FINE_LOCATION,
@@ -30,6 +37,8 @@ public class GpsMonitor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityGpsMonitorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
         if (checkLocationServicesStatus()) {
             checkRunTimePermission();
         } else {
@@ -43,7 +52,17 @@ public class GpsMonitor extends AppCompatActivity {
         double longitude = gpsTracker.getLongitude();
         binding.viewLat.setText("위도 : " + latitude);
         binding.viewLng.setText("경도 : " + longitude);
+        mapView(latitude, longitude);
+
         Toast.makeText(GpsMonitor.this, "현재위치 \n위도 " + latitude + "\n경도 " + longitude, Toast.LENGTH_LONG).show();
+    }
+    void mapView(double lat, double lng) {
+        MapView mapView = new MapView(this);
+        ViewGroup mapViewContainer = binding.mapView;
+        util.debugLog.log("mapLog", 2, "lat:"+lat + "lng:"+lng);
+        mapView.setMapCenterPoint(MapPoint.mapPointWithGeoCoord(lat, lng), true);
+
+        mapViewContainer.addView(mapView);
     }
 
     /*

@@ -4,11 +4,12 @@ package com.shuttle.gate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.shuttle.gate.R;
@@ -18,32 +19,51 @@ import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final LinearLayout activityMain;
+  public final ConstraintLayout activityMain;
 
   @NonNull
-  public final Button btn;
+  public final AppCompatButton btn;
 
   @NonNull
-  public final Button btnGps;
+  public final AppCompatButton btnGps;
+
+  @NonNull
+  public final LinearLayout linearLayout;
 
   @NonNull
   public final TextView textview;
 
-  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout activityMain,
-      @NonNull Button btn, @NonNull Button btnGps, @NonNull TextView textview) {
+  @NonNull
+  public final TextView textview1;
+
+  @NonNull
+  public final TextView textview2;
+
+  @NonNull
+  public final LinearLayout topSection;
+
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ConstraintLayout activityMain, @NonNull AppCompatButton btn,
+      @NonNull AppCompatButton btnGps, @NonNull LinearLayout linearLayout,
+      @NonNull TextView textview, @NonNull TextView textview1, @NonNull TextView textview2,
+      @NonNull LinearLayout topSection) {
     this.rootView = rootView;
     this.activityMain = activityMain;
     this.btn = btn;
     this.btnGps = btnGps;
+    this.linearLayout = linearLayout;
     this.textview = textview;
+    this.textview1 = textview1;
+    this.textview2 = textview2;
+    this.topSection = topSection;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -68,17 +88,23 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      LinearLayout activityMain = (LinearLayout) rootView;
+      ConstraintLayout activityMain = (ConstraintLayout) rootView;
 
       id = R.id.btn;
-      Button btn = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btn = ViewBindings.findChildViewById(rootView, id);
       if (btn == null) {
         break missingId;
       }
 
       id = R.id.btn_gps;
-      Button btnGps = ViewBindings.findChildViewById(rootView, id);
+      AppCompatButton btnGps = ViewBindings.findChildViewById(rootView, id);
       if (btnGps == null) {
+        break missingId;
+      }
+
+      id = R.id.linearLayout;
+      LinearLayout linearLayout = ViewBindings.findChildViewById(rootView, id);
+      if (linearLayout == null) {
         break missingId;
       }
 
@@ -88,7 +114,26 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, activityMain, btn, btnGps, textview);
+      id = R.id.textview1;
+      TextView textview1 = ViewBindings.findChildViewById(rootView, id);
+      if (textview1 == null) {
+        break missingId;
+      }
+
+      id = R.id.textview2;
+      TextView textview2 = ViewBindings.findChildViewById(rootView, id);
+      if (textview2 == null) {
+        break missingId;
+      }
+
+      id = R.id.topSection;
+      LinearLayout topSection = ViewBindings.findChildViewById(rootView, id);
+      if (topSection == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((ConstraintLayout) rootView, activityMain, btn, btnGps,
+          linearLayout, textview, textview1, textview2, topSection);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

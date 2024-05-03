@@ -1,18 +1,14 @@
 [
     {
-        "merged": "/Users/dev-trams/.gradle/daemon/7.5/com.shuttle.gate.app-mergeDebugResources-33:/layout/activity_main.xml",
-        "source": "/Users/dev-trams/.gradle/daemon/7.5/com.shuttle.gate.app-main-36:/layout/activity_main.xml"
-    },
-    {
-        "merged": "/Users/dev-trams/.gradle/daemon/7.5/com.shuttle.gate.app-mergeDebugResources-33:/layout/activity_licenses.xml",
-        "source": "/Users/dev-trams/.gradle/daemon/7.5/com.shuttle.gate.app-main-36:/layout/activity_licenses.xml"
-    },
-    {
-        "merged": "/Users/dev-trams/.gradle/daemon/7.5/com.shuttle.gate.app-mergeDebugResources-33:/layout/activity_gps_monitor.xml",
-        "source": "/Users/dev-trams/.gradle/daemon/7.5/com.shuttle.gate.app-main-36:/layout/activity_gps_monitor.xml"
+        "merged": "com.shuttle.gate.app-mergeDebugResources-33:/layout/activity_gps_monitor.xml",
+        "source": "com.shuttle.gate.app-main-36:/layout/activity_gps_monitor.xml"
     },
     {
         "merged": "com.shuttle.gate.app-mergeDebugResources-33:/layout/activity_licenses.xml",
         "source": "com.shuttle.gate.app-main-36:/layout/activity_licenses.xml"
+    },
+    {
+        "merged": "com.shuttle.gate.app-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "com.shuttle.gate.app-main-36:/layout/activity_main.xml"
     }
 ]

@@ -4,6 +4,7 @@ package com.shuttle.gate.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,14 +21,18 @@ public final class ActivityGpsMonitorBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final RelativeLayout mapView;
+
+  @NonNull
   public final TextView viewLat;
 
   @NonNull
   public final TextView viewLng;
 
-  private ActivityGpsMonitorBinding(@NonNull ConstraintLayout rootView, @NonNull TextView viewLat,
-      @NonNull TextView viewLng) {
+  private ActivityGpsMonitorBinding(@NonNull ConstraintLayout rootView,
+      @NonNull RelativeLayout mapView, @NonNull TextView viewLat, @NonNull TextView viewLng) {
     this.rootView = rootView;
+    this.mapView = mapView;
     this.viewLat = viewLat;
     this.viewLng = viewLng;
   }
@@ -59,6 +64,12 @@ public final class ActivityGpsMonitorBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.map_view;
+      RelativeLayout mapView = ViewBindings.findChildViewById(rootView, id);
+      if (mapView == null) {
+        break missingId;
+      }
+
       id = R.id.viewLat;
       TextView viewLat = ViewBindings.findChildViewById(rootView, id);
       if (viewLat == null) {
@@ -71,7 +82,7 @@ public final class ActivityGpsMonitorBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityGpsMonitorBinding((ConstraintLayout) rootView, viewLat, viewLng);
+      return new ActivityGpsMonitorBinding((ConstraintLayout) rootView, mapView, viewLat, viewLng);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
